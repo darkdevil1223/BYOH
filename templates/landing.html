@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSM Account Request</title>
+
+    <!-- SAME CSS FILE -->
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+     <style>
+        /* Center content vertically */
+.center-box {
+    text-align: center;
+}
+
+/* Big heading adjustments */
+.center-box h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+/* Subtitle styling */
+.subtitle {
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    opacity: 0.85;
+}
+
+/* Button spacing */
+.center-box button {
+    margin-top: 15px;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .center-box h1 {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+}
+
+
+     </style>
+</head>
+
+<body>
+
+<div class="form-container center-box">
+    {% if user.is_authenticated %}
+        <h1>Thank You for Logging In!</h1>
+
+        <a href="{% url 'logout' %}">
+            <button>Logout</button>
+        </a>
+    {% else %}
+        <h1>
+            hello
+            <br>
+            <span class="subtitle">
+                Welcome to byoh
+            </span>
+        </h1>
+
+        <!-- <a href="{% url 'login' %}"> -->
+        <a href="{% url 'index' %}">
+            <button>Login</button>
+        </a>
+    {% endif %}
+</div>
+
+</body>
+</html>

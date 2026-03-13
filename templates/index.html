@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- ✅ REQUIRED for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Server Request</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px; /* ✅ mobile spacing */
+            color: #fff;
+        }
+
+        /* Card */
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            padding: 113px;
+            border-radius: 15px;
+            width: 146%;
+            max-width: 1387px; /* ✅ responsive width */
+            animation: slideUp 0.8s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* Inputs */
+        label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #ddd;
+        }
+
+        input:focus,
+        textarea:focus {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.02);
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ✅ Mobile tweaks */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 25px;
+            }
+
+            .form-container h2 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h2>Server Request Form</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>LDAP</label>
+        <input type="text" name="ldap" required>
+
+        <label>Department</label>
+        <input type="text" name="department">
+
+        <label>Extension Number</label>
+        <input type="text" name="extension_number">
+
+        <label>Server Name</label>
+        <input type="text" name="server_name">
+
+        <label>Number of Servers</label>
+        <input type="number" name="number_of_servers" min="1">
+
+        <label>Rack Space (U)</label>
+        <input type="number" name="rack_space_units">
+
+        <label>Power Consumption per Server (Watts)</label>
+        <input type="number" step="0.01" name="power_per_server">
+
+        <label>CPU / GPU Details</label>
+        <textarea name="cpu_gpu_details" rows="4"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
