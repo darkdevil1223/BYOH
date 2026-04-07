@@ -130,13 +130,21 @@
         {% csrf_token %}
 
         <label>Full Name</label>
-        <input type="text" name="full_name" required>
+        <!-- <input type="text" name="full_name" required> -->
+         <input type="text" name="full_name" value="{{ form_data.full_name }}" required>
 
         <label>LDAP</label>
-        <input type="text" name="ldap" required>
+        <!-- <input type="text" name="ldap" required> -->
+         <input type="text" name="ldap" value="{{ form_data.ldap }}" readonly>
+         
 
         <label>Department</label>
-        <input type="text" name="department">
+        <!-- <input type="text" name="department"> -->
+         <input type="text" name="department" value="{{ departmentnumber }}">
+
+        <label>email</label>
+        <!-- <input type="text" name="department"> -->
+         <input type="text" name="email" value="{{ form_data.email }}">
 
         <label>Extension Number</label>
         <input type="text" name="extension_number">

@@ -4,6 +4,7 @@ class ServerRequest(models.Model):
     full_name = models.CharField(max_length=100)
     ldap = models.CharField(max_length=50)
     department = models.CharField(max_length=100)
+    email = models.CharField(max_length=100, null=True)
     extension_number = models.CharField(max_length=20)
     server_name = models.CharField(max_length=100)
     number_of_servers = models.PositiveIntegerField()
